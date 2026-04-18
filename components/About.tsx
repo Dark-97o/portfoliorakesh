@@ -136,9 +136,9 @@ export default function About() {
           </motion.h2>
 
           {/* ── Photo + Bio ── */}
-          <div className="grid grid-cols-1 md:grid-cols-[340px_1fr] gap-12 mb-20">
-            {/* Photo card */}
-            <motion.div variants={fadeUp} className="relative group mx-auto md:mx-0">
+          <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-10 mb-10">
+            {/* Photo card — stretches to match bio height */}
+            <motion.div variants={fadeUp} className="relative group mx-auto md:mx-0 self-stretch">
               {/* Animated glow ring */}
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-60 blur-xl transition-all duration-700" />
               {/* Animated border */}
@@ -155,13 +155,13 @@ export default function About() {
                   borderRadius: "1rem",
                 }}
               />
-              <div className="relative w-[260px] h-[340px] lg:w-[300px] lg:h-[380px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <div className="relative w-[280px] md:w-full h-[400px] md:h-full min-h-[400px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <Image
                   src="/about-speaking.jpeg"
                   alt="Rakesh Bangra speaking at an event"
                   fill
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 2140px) 360px, 400px"
+                  sizes="(max-width: 768px) 280px, 320px"
                 />
                 {/* Bottom gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent" />
@@ -188,8 +188,8 @@ export default function About() {
                 </div>
               </div>
               {/* Decorative corner brackets */}
-              <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-blue-500/50 rounded-tl-lg" />
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-purple-500/50 rounded-br-lg" />
+              <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-blue-400/60 rounded-tl-lg pointer-events-none" />
+              <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-purple-400/60 rounded-br-lg pointer-events-none" />
             </motion.div>
 
             {/* Bio text on glass card */}
@@ -208,38 +208,38 @@ export default function About() {
               </motion.p>
               <motion.p
                 variants={fadeUp}
-                className="text-gray-200 text-lg leading-relaxed mb-8 drop-shadow"
+                className="text-gray-200 text-lg leading-relaxed drop-shadow"
               >
                 Beyond academics, I&apos;m highly active in the tech community. I serve as
                 the Chairperson for the ACM UEMJ Chapter and have organized numerous
                 hackathons and events. I thrive in dynamic environments where problem-solving
                 meets creativity.
               </motion.p>
-
-              {/* Quick stats */}
-              <motion.div variants={fadeUp} className="grid grid-cols-3 gap-4">
-                {[
-                  { label: "CGPA", value: "9.48" },
-                  { label: "Hackathons", value: "7+" },
-                  { label: "Events Led", value: "15+" },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.06, y: -4 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="text-center p-4 bg-white/[0.06] backdrop-blur-sm rounded-xl border border-white/[0.08] hover:border-blue-500/30 transition-colors cursor-default"
-                  >
-                    <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-purple-400">
-                      {stat.value}
-                    </p>
-                    <p className="text-xs text-gray-400 uppercase tracking-wider mt-1 font-medium">
-                      {stat.label}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
             </motion.div>
           </div>
+
+          {/* ── Stats Row (separate) ── */}
+          <motion.div variants={fadeUp} className="grid grid-cols-3 gap-5 mb-12">
+            {[
+              { label: "CGPA", value: "9.48" },
+              { label: "Hackathons", value: "7+" },
+              { label: "Events Led", value: "15+" },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.05, y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="text-center py-6 px-4 backdrop-blur-md bg-white/[0.05] rounded-2xl border border-white/[0.08] hover:border-blue-500/30 transition-colors cursor-default shadow-xl"
+              >
+                <p className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-purple-400">
+                  {stat.value}
+                </p>
+                <p className="text-xs text-gray-400 uppercase tracking-widest mt-2 font-semibold">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
 
           {/* ── Education Timeline (glass card) ── */}
           <motion.div
