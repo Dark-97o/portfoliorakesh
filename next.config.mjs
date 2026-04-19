@@ -1,7 +1,9 @@
+const isGithubPages = process.env.GITHUB_ACTIONS === 'true';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
-    basePath: process.env.NODE_ENV === 'production' ? '/portfoliorakesh' : '',
+    basePath: isGithubPages ? '/portfoliorakesh' : '',
     images: {
         unoptimized: true,
     },
