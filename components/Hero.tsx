@@ -162,7 +162,7 @@ export default function Hero() {
             <div className="relative w-[260px] h-[260px] md:w-[320px] md:h-[320px] lg:w-[380px] lg:h-[380px] rounded-full p-[2px] bg-gradient-to-br from-purple-500/40 via-white/10 to-cyan-500/40">
               <div className="w-full h-full rounded-full overflow-hidden bg-[#0B0F19] p-[2px]">
                 <div className="w-full h-full rounded-full overflow-hidden relative">
-                  <Image src="https://drive.google.com/uc?export=view&id=1jZZ9jfusY6_5_oyBusb7TkTSt6qedGmp" alt="Rakesh Bangra" fill className="object-cover object-top" priority sizes="(max-width: 768px) 260px, (max-width: 1024px) 320px, 380px" />
+                  <Image src="/hero-profile.jpeg" alt="Rakesh Bangra" fill className="object-cover object-top" priority sizes="(max-width: 768px) 260px, (max-width: 1024px) 320px, 380px" />
                 </div>
               </div>
             </div>
